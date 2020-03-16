@@ -1,0 +1,39 @@
+<%@page import="com.bean.Reporter"%>
+<%
+    if (session.getAttribute("currentreporter") == null) {
+        response.sendRedirect("../login.jsp");
+        return;
+    }
+    Reporter reporter = (Reporter) session.getAttribute("currentreporter");
+    String username = reporter.getUsername();
+    String img = "../" + reporter.getPhoto();
+%>
+
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Amaya News Portal</a>
+    <ul>          
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= username%></span>
+                <!--60X60-->
+                <img class="img-profile rounded-circle" src="<%= img%>" style="width: 60px; height: 60px;">             
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Settings
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="dashboard.jsp?op=logout" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                </a>
+            </div>
+        </li>
+    </ul>
+</nav>

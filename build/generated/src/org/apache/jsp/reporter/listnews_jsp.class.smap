@@ -1,0 +1,16 @@
+SMAP
+listnews_jsp.java
+JSP
+*S JSP
+*F
++ 0 listnews.jsp
+reporter/listnews.jsp
+*L
+1,23:52
+25,18:77
+42,2:95
+44,6:97,3
+50,2:115
+51,2:117
+52,4:119
+*E
